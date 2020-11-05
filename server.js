@@ -2,6 +2,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
+const chalk = require('chalk')
 
 // require route files
 const exampleRoutes = require('./app/routes/example_routes')
@@ -62,8 +63,12 @@ app.use(express.urlencoded({ extended: true }))
 app.use(requestLogger)
 
 // register route files
-app.use(exampleRoutes)
+app.use(exampleRoutes) // Need to Replace with Inventory Routes
 app.use(userRoutes)
+
+app.get('/', function (req, res) {
+  res.send('Routes are basically working, etc')
+})
 
 // register error handling middleware
 // note that this comes after the route middlewares, because it needs to be
@@ -71,8 +76,8 @@ app.use(userRoutes)
 app.use(errorHandler)
 
 // run API on designated port (4741 in this case)
-app.listen(port, () => {
-  console.log('listening on port ' + port)
+app.listen(4741, () => {
+  console.log(chalk.bgCyanBright.whiteBright.bold.italic('Yo, server running etc. on port ' + 4741))
 })
 
 // needed for testing

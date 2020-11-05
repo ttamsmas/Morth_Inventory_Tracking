@@ -1,7 +1,7 @@
 {
   "name": "morth_inventory_tracking",
   "version": "0.0.1",
-  "description": "",
+  "description": "API for Morth Inventory Tracking",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -11,10 +11,11 @@
     "s": "nodemon server.js",
     "debug-server": "DEBUG=express:* nodemon server.js"
   },
-  "author": "",
+  "author": "ttamsmas",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^3.0.7",
+    "bcrypt": "^3.0.8",
+    "chalk": "^4.1.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -35,5 +36,21 @@
   "engines": {
     "node": "10.15.0",
     "npm": "6.4.1"
-  }
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttamsmas/Morth_Inventory_Tracking.git"
+  },
+  "keywords": [
+    "Express",
+    "JavaScript"
+  ],
+  "bugs": {
+    "url": "https://github.com/ttamsmas/Morth_Inventory_Tracking/issues"
+  },
+  "homepage": "https://github.com/ttamsmas/Morth_Inventory_Tracking#readme"
 }
