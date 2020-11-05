@@ -93,6 +93,7 @@ router.patch('/items/:id', requireToken, removeBlanks, (req, res, next) => {
 })
 
 // DESTROY / DELETE
+// Not the same thing as remove quantity (patch)
 router.delete('/items/:id', requireToken, (req, res, next) => {
   Item.findById(req.params.id)
     .then(handle404)
