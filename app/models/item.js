@@ -1,20 +1,23 @@
 const mongoose = require('mongoose')
 
 const itemSchema = new mongoose.Schema({
-  itemName: {
+  name: {
     type: String,
     required: true
   },
-  itemClass: {
-    type: String,
+  department: { // I think you can setup an array of responses to limit the results received
+    type: String
+  },
+  quantity: {
+    type: Number,
     required: true
   },
-  costPerUnit: {
-    type: String,
+  cost: {
+    type: Number,
     required: true
-  },
-  pricePerUnit: {
-    type: String,
+    },
+  price: { // price should be a virtual function determined by the cost
+    type: Number,
     required: true
     },
   owner: {
