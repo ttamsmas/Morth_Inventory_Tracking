@@ -5,7 +5,7 @@ const cors = require('cors')
 const chalk = require('chalk')
 
 // require route files
-const itemsRoutes = require('./app/routes/item_routes')
+const itemRoutes = require('./app/routes/item_routes')
 const userRoutes = require('./app/routes/user_routes')
 
 // require middleware

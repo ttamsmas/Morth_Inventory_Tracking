@@ -27,14 +27,14 @@ const requireToken = passport.authenticate('bearer', { session: false })
 // instantiate a router (mini app that only handles routes)
 const router = express.Router()
 
-// INDEX
-// GET /items
+// INDEX / GET / Show All
 router.get('/items', requireToken, (req, res, next) => {
   Item.find()
     .then(items => {
       // `items` will be an array of Mongoose documents
-      // we want to convert each one to a POJO, so we use `.map` to
+      // we want to convert each one to a Plain Javascript Object, so we use `.map` to
       // apply `.toObject` to each one
+      // .map also works to create a new filtered array
       return items.map(item => item.toObject())
     })
     // respond with status 200 and JSON of the items
@@ -43,8 +43,7 @@ router.get('/items', requireToken, (req, res, next) => {
     .catch(next)
 })
 
-// SHOW
-// GET /items/5a7db6c74d55bc51bdf39793
+// SHOW / GETONE
 router.get('/items/:id', requireToken, (req, res, next) => {
   // req.params.id will be set based on the `:id` in the route
   Item.findById(req.params.id)
@@ -55,8 +54,7 @@ router.get('/items/:id', requireToken, (req, res, next) => {
     .catch(next)
 })
 
-// CREATE
-// POST /items
+// CREATE / POST
 router.post('/items', requireToken, (req, res, next) => {
   // set owner of new item to be current user
   req.body.item.owner = req.user.id
@@ -72,8 +70,7 @@ router.post('/items', requireToken, (req, res, next) => {
     .catch(next)
 })
 
-// UPDATE
-// PATCH /items/5a7db6c74d55bc51bdf39793
+// UPDATE / PATCH
 router.patch('/items/:id', requireToken, removeBlanks, (req, res, next) => {
   // if the client attempts to change the `owner` property by including a new
   // owner, prevent that by deleting that key/value pair
@@ -95,8 +92,7 @@ router.patch('/items/:id', requireToken, removeBlanks, (req, res, next) => {
     .catch(next)
 })
 
-// DESTROY
-// DELETE /items/5a7db6c74d55bc51bdf39793
+// DESTROY / DELETE
 router.delete('/items/:id', requireToken, (req, res, next) => {
   Item.findById(req.params.id)
     .then(handle404)
