@@ -30,7 +30,6 @@ const clientDevPort = 7165
 // use createIndex instead of deprecated ensureIndex
 mongoose.connect(db, {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
   useCreateIndex: true
 })
 
@@ -76,8 +75,8 @@ app.get('/', function (req, res) {
 app.use(errorHandler)
 
 // run API on designated port (4741 in this case)
-app.listen(4741, () => {
-  console.log(chalk.bgCyanBright.whiteBright.bold.italic('Yo, server running etc. on port ' + 4741))
+app.listen(port, () => {
+  console.log(chalk.bgCyanBright.whiteBright.bold.italic('Yo, server running etc. on port ' + port))
 })
 
 // needed for testing
