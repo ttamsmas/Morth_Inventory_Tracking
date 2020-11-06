@@ -6,11 +6,10 @@ const passport = require('passport')
 // pull in Mongoose model for items
 const Item = require('../models/item')
 
-// this is a collection of methods that help us detect situations when we need
-// to throw a custom error
+// Catch pushes errors to a waterfall of custom error messages
 const customErrors = require('../../lib/custom_errors')
 
-// we'll use this function to send 404 when non-existant document is requested
+// Error for Non-Existant Doc Request
 const handle404 = customErrors.handle404
 // we'll use this function to send 401 when a user tries to modify a resource
 // that's owned by someone else
@@ -30,15 +29,10 @@ const router = express.Router()
 router.get('/items', requireToken, (req, res, next) => {
   Item.find()
     .then(items => {
-      // `items` will be an array of Mongoose documents
-      // we want to convert each one to a Plain Javascript Object, so we use `.map` to
-      // apply `.toObject` to each one
-      // .map also works to create a new filtered array
       return items.map(item => item.toObject())
     })
-    // respond with status 200 and JSON of the items
-    .then(items => res.status(200).json({ items: items }))
-    // if an error occurs, pass it to the handler
+    // respond with status 200 and JSON of the examples
+    .then(items => res.status(200).json({ items }))
     .catch(next)
 })
 
