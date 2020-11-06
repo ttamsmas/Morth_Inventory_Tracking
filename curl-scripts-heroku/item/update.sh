@@ -10,11 +10,10 @@ curl "${API}${URL_PATH}/${ID}" \
 --header "Authorization: Bearer ${TOKEN}" \
 --data '{
     "item": {
-      "key": "'"${KEY}"'",
-      "value": "'"${VALUE}"'"
+      "name": "'"${NAME}"'"
     }
   }'
 
 echo
 
-# TOKEN=077064f173dbde25c19a5e0fc41a90e8 ID=5fa5ccb0e864eb0017250830 KEY="name" VALUE="hiC" sh curl-scripts-heroku/item/update.sh
+# TOKEN=077064f173dbde25c19a5e0fc41a90e8 ID=5fa5ccb0e864eb0017250830 NAME="hiC" sh curl-scripts-heroku/item/update.sh
