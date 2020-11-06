@@ -79,6 +79,9 @@ app.use(errorHandler)
 app.listen(4741, () => {
   console.log(chalk.bgCyanBright.whiteBright.bold.italic('Yo, server running etc. on port ' + 4741))
 })
+app.listen(7165, () => {
+  console.log(chalk.bgCyanBright.whiteBright.bold.italic('Yo, server running etc. on port ' + 7165))
+})
 
 // needed for testing
 module.exports = app
