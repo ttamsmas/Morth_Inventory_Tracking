@@ -80,9 +80,12 @@ router.patch('/items/:id', requireToken, removeBlanks, (req, res, next) => {
 
       // pass the result of Mongoose's `.update` to the next `.then`
       return item.updateOne(req.body.item)
+      .then(item => {
+        return item.save()
+      })
     })
     // if that succeeded, return 204 and no JSON
-    .then(() => res.sendStatus(204))
+    .then(() => res.sendStatus(204)).json({ item })
     // if an error occurs, pass it to the handler
     .catch(next)
 })
