@@ -21,4 +21,4 @@ curl "${API}${URL_PATH}" \
 
 echo
 
-# TOKEN=5033c9420ba52e9fbff0c01ea5b557f1 NAME=Spindrift DEPARTMENT=Drinks QUANTITY=12 COST=5 PRICE=10 OWNER=5fa5cb5ee864eb001725082f sh curl-scripts-heroku/item/create.sh
+# TOKEN=d53c6ce593487d54a1de9a656304caae NAME=Spindrift DEPARTMENT=Drinks QUANTITY=12 COST=5 PRICE=10 OWNER=5fa5cb5ee864eb001725082f sh curl-scripts-heroku/item/create.sh
