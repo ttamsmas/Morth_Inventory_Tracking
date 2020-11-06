@@ -1,7 +1,7 @@
 'use strict'
 
 // creating a base name for the mongodb
-const mongooseBaseName = 'morth_inventory_tracking'
+const mongooseBaseName = 'morthinventorytracking'
 
 // create the mongodb uri for development and test
 const database = {
