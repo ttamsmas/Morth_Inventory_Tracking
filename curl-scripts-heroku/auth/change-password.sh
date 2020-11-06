@@ -17,4 +17,4 @@ curl "${API}${URL_PATH}/" \
 
 echo
 
-# TOKEN=7e47d8d619a59fd3a5f5c11da443294f OLDPW=2 NEWPW=3 sh curl-scripts-heroku/auth/change-password.sh
+# TOKEN=b03f75fcfc9c18d347c858c497dfa789 OLDPW=3 NEWPW=2 sh curl-scripts-heroku/auth/change-password.sh

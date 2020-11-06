@@ -28,8 +28,10 @@ const router = express.Router()
 // INDEX / GET / Show All
 router.get('/items', requireToken, (req, res, next) => {
   Item.find()
+    .populate('owner')
+    .populate('items.owner')
     .then(items => {
-      return items.map(item => item.toObject())
+    return items.map(item => item.toObject())
     })
     // respond with status 200 and JSON of the examples
     .then(items => res.status(200).json({ items }))

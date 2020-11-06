@@ -10,4 +10,4 @@ curl "${API}${URL_PATH}/" \
 
 echo
 
-# TOKEN=7509bd790700b81141c0cb73f0f591fb sh curl-scripts-heroku/auth/sign-out.sh
+# TOKEN=b03f75fcfc9c18d347c858c497dfa789 sh curl-scripts-heroku/auth/sign-out.sh
