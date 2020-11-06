@@ -1,7 +1,7 @@
 #!/bin/bash
 
 API="https://morthinventorytracking.herokuapp.com"
-URL_PATH="/items"
+URL_PATH="items"
 
 curl "${API}${URL_PATH}/${ID}" \
   --include \
