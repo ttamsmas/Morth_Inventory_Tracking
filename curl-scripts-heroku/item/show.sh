@@ -10,4 +10,4 @@ curl "${API}${URL_PATH}/${ID}" \
 
 echo
 
-# TOKEN=7e47d8d619a59fd3a5f5c11da443294f ID=5fa46ee491c0c64f62de2132 sh curl-scripts-heroku/item/show.sh
+# TOKEN=5033c9420ba52e9fbff0c01ea5b557f1 ID=5fa5ccb0e864eb0017250830 sh curl-scripts-heroku/item/show.sh
