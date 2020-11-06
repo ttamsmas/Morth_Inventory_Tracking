@@ -33,7 +33,6 @@ router.get('/items', requireToken, (req, res, next) => {
     .then(items => {
     return items.map(item => item.toObject())
     })
-    // respond with status 200 and JSON of the examples
     .then(items => res.status(200).json({ items }))
     .catch(next)
 })
@@ -67,10 +66,7 @@ router.post('/items', requireToken, (req, res, next) => {
 
 // UPDATE / PATCH
 router.patch('/items/:id', requireToken, removeBlanks, (req, res, next) => {
-  // if the client attempts to change the `owner` property by including a new
-  // owner, prevent that by deleting that key/value pair
-  delete req.body.example.owner
-
+  delete req.body.item.owner
   Item.findById(req.params.id)
     .then(handle404)
     .then(item => {
