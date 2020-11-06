@@ -21,4 +21,4 @@ curl "${API}${URL_PATH}" \
 
 echo
 
-# TOKEN=7e47d8d619a59fd3a5f5c11da443294f NAME=Spindrift DEPARTMENT=Drinks QUANTITY=12 COST=5 PRICE=10 OWNER=5fa4562e0c18e64cb5af2bb6 sh curl-scripts/item/create.sh
+# TOKEN=984abdb92da933652016e96bc763450e NAME=Spindrift DEPARTMENT=Drinks QUANTITY=12 COST=5 PRICE=10 OWNER=5fa4562e0c18e64cb5af2bb6 sh curl-scripts/item/create.sh
