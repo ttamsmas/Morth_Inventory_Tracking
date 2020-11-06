@@ -14,7 +14,7 @@ const database = {
 const localDb = process.env.TESTENV ? database.test : database.development
 
 // Environment variable DB_URI will be available in
-// heroku production environment otherwise use test or development db
+// heroku production evironment otherwise use test or development db
 const currentDb = process.env.DB_URI || localDb
 
 module.exports = currentDb
