@@ -48,15 +48,15 @@ router.get('/items/:id', requireToken, (req, res, next) => {
     .catch(next)
 })
 
-// CREATE / POST
+// POST / CREATE AN ITEM
 router.post('/items', requireToken, (req, res, next) => {
-  // set owner of new item to be current user
-  req.body.item.owner = req.user.id
-
+  // set owner of new item to be the user signed in user
+  console.log(req.body)
+  console.log(req.params)
   Item.create(req.body.item)
     // respond to succesful `create` with status 201 and JSON of new "item"
     .then(item => {
-      res.status(201).json({ item: item.toObject() })
+      res.status(201).json({ item: item })
     })
     // if an error occurs, pass it off to our error handler
     // the error handler needs the error message and the `res` object so that it

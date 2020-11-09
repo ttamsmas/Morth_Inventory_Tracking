@@ -11,4 +11,4 @@ curl "${API}${URL_PATH}" \
 
 echo
 
-# TOKEN=984abdb92da933652016e96bc763450e sh curl-scripts/item/index.sh
+# TOKEN=859db80bb7b7d77ba91198687ac1a106 sh curl-scripts/item/index.sh

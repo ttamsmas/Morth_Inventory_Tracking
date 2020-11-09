@@ -16,10 +16,24 @@ const itemSchema = new mongoose.Schema({
     type: Number,
     required: true
     },
-  price: { // price should be a virtual function determined by the cost
+  price: {
     type: Number,
-    required: true
+    default: function () {
+      return this.cost * 2
+    }
+  },
+  created: {
+    type: String,
+    get: dateCreated => {
+      let created = new Date(dateCreated)
+      let today = new Date()
+      let ageCalc = today.getTime() - created.getTime()
+      let agePretty = Math.floor(ageCalc / (1000 * 3600 * 24) / 365 )
+      return age
     },
+    set: age => age,
+    alias: 'age'
+  },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

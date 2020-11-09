@@ -11,4 +11,4 @@ curl "${API}${URL_PATH}" \
 
 echo
 
-# TOKEN=077064f173dbde25c19a5e0fc41a90e8 sh curl-scripts-heroku/item/index.sh
+# TOKEN=859db80bb7b7d77ba91198687ac1a106 sh curl-scripts-heroku/item/index.sh
