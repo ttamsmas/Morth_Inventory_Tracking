@@ -29,7 +29,7 @@ const router = express.Router()
 router.get('/items', requireToken, (req, res, next) => {
   Item.find()
     // respond with the items
-    .then(items => res.json({ items }))
+    .then(items => res.json({ items: items }))
     // if an error occurs, call the next middleware (the error handler middleware)
     .catch(next)
 })
