@@ -13,12 +13,10 @@ curl "${API}${URL_PATH}" \
       "name": "'"${NAME}"'",
       "department": "'"${DEPARTMENT}"'",
       "quantity": "'"${QUANTITY}"'",
-      "cost": "'"${COST}"'",
-      "price": "'"${PRICE}"'",
-      "owner": "'"${OWNER}"'"
+      "cost": "'"${COST}"'"
     }
   }'
 
 echo
 
-# TOKEN=984abdb92da933652016e96bc763450e NAME=Spindrift DEPARTMENT=Drinks QUANTITY=12 COST=5 PRICE=10 OWNER=5fa4562e0c18e64cb5af2bb6 sh curl-scripts/item/create.sh
+# TOKEN=b054dcbd5c77ed48a688be991607f91f NAME=2 DEPARTMENT=2 QUANTITY=2 COST=2 sh curl-scripts/item/create.sh

@@ -67,9 +67,10 @@ app.use(exampleRoutes)
 app.use(itemRoutes)
 app.use(userRoutes)
 
-app.get('/', function (req, res) {
-  res.send('Routes are basically working, etc')
-})
+// test server
+// app.get('/', function (req, res) {
+//   res.send('Routes are basically working, etc')
+// })
 
 // register error handling middleware
 // note that this comes after the route middlewares, because it needs to be
