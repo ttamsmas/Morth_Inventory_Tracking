@@ -1,3 +1,5 @@
+'use strict'
+
 const mongoose = require('mongoose')
 
 const itemSchema = new mongoose.Schema({
@@ -16,31 +18,25 @@ const itemSchema = new mongoose.Schema({
     type: Number,
     required: true
     },
-  price: {
-    type: Number,
-    default: function () {
-      return this.cost * 2
-    }
-  },
-  created: {
-    type: String,
-    get: dateCreated => {
-      let created = new Date(dateCreated)
-      let today = new Date()
-      let ageCalc = today.getTime() - created.getTime()
-      let agePretty = Math.floor(ageCalc / (1000 * 3600 * 24) / 365 )
-      return age
-    },
-    set: age => age,
-    alias: 'age'
-  },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
   }
 }, {
-  timestamps: true
+  timestamps: true,
+  toJSON: {
+    virtuals: true,
+    transform: function (doc, ret, options) {
+      const userId = (options.user && options.user._id) || false
+      ret.editable = userId && userId.equals(doc._owner)
+      return ret
+    }
+  }
+})
+
+itemSchema.virtual('price').get(function price () {
+  return this.cost * 2
 })
 
 module.exports = mongoose.model('Item', itemSchema)

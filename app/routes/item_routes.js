@@ -28,15 +28,9 @@ const router = express.Router()
 // INDEX / GET / Show All
 router.get('/items', requireToken, (req, res, next) => {
   Item.find()
-    .then(items => {
-      // `items` will be an array of Mongoose documents
-      // we want to convert each one to a POJO, so we use `.map` to
-      // apply `.toObject` to each one
-      return items.map(item => item.toObject())
-    })
-    // respond with status 200 and JSON of the items
-    .then(items => res.status(200).json({ items: items }))
-    // if an error occurs, pass it to the handler
+    // respond with the items
+    .then(items => res.json({ items }))
+    // if an error occurs, call the next middleware (the error handler middleware)
     .catch(next)
 })
 
@@ -55,14 +49,11 @@ router.get('/items/:id', requireToken, (req, res, next) => {
 router.post('/items', requireToken, (req, res, next) => {
   // set owner of new item to be the user signed in user
   req.body.item.owner[0] = req.user.id
-  Item.create(req.body.item)
-    // respond to succesful `create` with status 201 and JSON of new "item"
-    .then(item => {
-      res.status(201).json({ item: item })
-    })
-    // if an error occurs, pass it off to our error handler
-    // the error handler needs the error message and the `res` object so that it
-    // can send an error message back to the client
+  const itemData = req.body.item
+  Item.create(itemData)
+    // respond with the status code 201 created and the item that was created
+    .then(item => res.status(201).json({ item: item }))
+    // if an error occurs, call the next middleware (the error handler middleware)
     .catch(next)
 })
 
