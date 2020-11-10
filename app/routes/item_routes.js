@@ -51,8 +51,7 @@ router.get('/items/:id', requireToken, (req, res, next) => {
 // POST / CREATE AN ITEM
 router.post('/items', requireToken, (req, res, next) => {
   // set owner of new item to be the user signed in user
-  console.log(req.body)
-  console.log(req.params)
+  req.body.items.owner[0] = req.user.id
   Item.create(req.body.item)
     // respond to succesful `create` with status 201 and JSON of new "item"
     .then(item => {
