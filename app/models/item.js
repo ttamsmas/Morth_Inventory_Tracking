@@ -17,7 +17,7 @@ const itemSchema = new mongoose.Schema({
   cost: {
     type: Number,
     required: true
-    },
+  },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

@@ -49,10 +49,11 @@ router.get('/items/:id', requireToken, (req, res, next) => {
 router.post('/items', requireToken, (req, res, next) => {
   // set owner of new item to be the user signed in user
   req.body.item.owner[0] = req.user.id
-  const itemData = req.body.item
-  Item.create(itemData)
+  Item.create(req.body.item)
     // respond with the status code 201 created and the item that was created
-    .then(item => res.status(201).json({ item: item }))
+    .then(item => {
+     res.status(201).json({ item: item.toObject() })
+   })
     // if an error occurs, call the next middleware (the error handler middleware)
     .catch(next)
 })
