@@ -30,17 +30,16 @@ This NoSQL Database was developed to store and relay information to an inventory
 
 ## Planning Story
 
-The goal of this document is to track inventory items and authenticated users within a NoSQL Database. Inventory items are to be owned by users, so they need to contain user ids representing item ownership. With these considerations, I mapped out a plan for developing the server.
+The goal of this document is to track inventory items and authenticated users within a NoSQL Database. Inventory items are to be owned by users, so they need to contain user ids representing item ownership. With these considerations, I mapped out a plan for developing the server:
 
-Development Plan
-----------------
+#### Development Plan
 
  - Create a standard NoSQL Server using Express, CORs, and Mongoose
  - Setup Pathways for items and user authentication including error handlers, hashed password protocols, and connections to the Models, Schema, and Routes
  - The Schema for the Users and Items need to be customized to capture the appropriate fields for inventory management with ownership
-  1. The Inventory Item Schema should include standard fields e.g. name, cost, and timestamps
-  2. In addition to standard fields, virtual fields like price calculated from cost
-  3. Ownership within Items will eventually correlate to User ID Fields but for now creating an ownership field within the item schema is enough
+    1. The Inventory Item Schema should include standard fields e.g. name, cost, and timestamps
+    2. In addition to standard fields, virtual fields like price calculated from cost
+    3. Ownership within Items will eventually correlate to User ID Fields but for now creating an ownership field within the item schema is enough
 - Establish Routes for both Item and User requests including GET, POST, PATCH, SHOW, INDEX, & DELETE
 - Establish Ownership Logic within Item Routes to prevent unauthorized use of the server
 - Test Route Responses by testing the SPA side AJAX Requests
@@ -54,7 +53,7 @@ Development Plan
 ## Technologies Used
 
 - MongoDB with Mongoose
-- CORs, Chalk, and Express Middleware
+- CORs, BCrypt, Passport, and Express Middleware
 - Javascript & JQuery
 
 ## Unsolved Problems
