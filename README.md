@@ -1,7 +1,9 @@
-## Morth Inventory Tracking
+# Morth Inventory Tracking
 
-Morth Inventory Tracking: MongoDB Server Connected to Inventory Tracking SPA
-=======================
+==========================
+
+#### Morth Inventory Tracking: MongoDB Server Connected to Inventory Tracking SPA
+
 
 This NoSQL Database was developed to store and relay information to an inventory management SPA.
 
