@@ -28,6 +28,8 @@ This NoSQL Database was developed to store and relay information to an inventory
 
 [Server Repository](https://github.com/ttamsmas/Morth_Inventory_Tracking)
 
+---
+
 ## Planning Story
 
 The goal of this document is to track inventory items and authenticated users within a NoSQL Database. Inventory items are to be owned by users, so they need to contain user ids representing item ownership. With these considerations, I mapped out a plan for developing the server:
@@ -44,17 +46,23 @@ The goal of this document is to track inventory items and authenticated users wi
 - Establish Ownership Logic within Item Routes to prevent unauthorized use of the server
 - Test Route Responses by testing the SPA side AJAX Requests
 
+---
+
 ## User Stories
 
   1. As a security focused user, I want authentication to require making an account and incorporating a hashed password
   2. I am focused on inventory addition so I want users to be able to create items with as few fields as possible and I want the item to be viewable once I have submitted it.
   3. As a user focused on recurring inventory quantity counts, I want to be able to directly adjust the quantity, ideally without needing to copy and paste an item id
 
+---
+
 ## Technologies Used
 
 - MongoDB with Mongoose
 - CORs, BCrypt, Passport, and Express Middleware
 - Javascript & JQuery
+
+---
 
 ## Unsolved Problems
 
@@ -64,6 +72,7 @@ User ownership is functioning, however, administrative levels would make the pro
 
 More virtual fields could be developed like the age of inventory by manipulating item's timestamps from within the Item Schema's virtual properties.
 
+---
 
 ## Entity Relationship Diagram
 
