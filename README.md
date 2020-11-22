@@ -1,5 +1,6 @@
 # Morth Inventory Tracking
-==========================
+
+---
 
 #### Morth Inventory Tracking: MongoDB Server Connected to Inventory Tracking SPA
 
